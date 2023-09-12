@@ -2,7 +2,8 @@
 
 GameObject::GameObject()
 {
-	transform = new Transform();
+	name = "GameObject";
+	transform = new Transform(this);
 }
 
 bool GameObject::initialize()

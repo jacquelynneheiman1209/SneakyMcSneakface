@@ -14,6 +14,7 @@ public:
 	
 	bool initialize();
 
+	void AddGameObject(std::unique_ptr<GameObject> gameObject);
 	std::string getName();
 
 	void IInput::handleInput(sf::RenderWindow* window, sf::Event* event)
@@ -42,7 +43,7 @@ public:
 
 private:
 	std::string sceneName;
-	std::map<std::string, GameObject*> gameObjects;
+	std::map<std::string, std::unique_ptr<GameObject>> gameObjects;
 };
 
 #endif // !SCENE_H

@@ -12,6 +12,9 @@
 class GameObject : public IInput, IUpdate, IDraw
 {
 public :
+	std::string name;
+	Transform* transform;
+
 	GameObject();
 
 	bool initialize();
@@ -68,7 +71,6 @@ public :
 	void AddComponent(T component);
 
 protected:
-	Transform* transform;
 	std::vector<std::unique_ptr<Component>> components;
 };
 

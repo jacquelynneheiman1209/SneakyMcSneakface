@@ -1,6 +1,6 @@
 #include "Transform.h"
 
-Transform::Transform()
+Transform::Transform(GameObject* parentObject) : Component(parentObject)
 {
 
 }

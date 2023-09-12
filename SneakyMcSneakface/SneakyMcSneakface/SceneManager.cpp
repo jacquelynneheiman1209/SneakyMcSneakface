@@ -6,7 +6,7 @@ SceneManager::SceneManager()
 	scenes["Test"] = new Scene();
 	currentScene = "Test";
 
-	// TODO: I need to set up the test scene so that I can test to see if the component system is working
+	GameObject testObject = GameObject();
 
 }
 

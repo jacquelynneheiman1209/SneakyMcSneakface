@@ -1,8 +1,8 @@
 #include "Component.h"
 
-Component::Component()
+Component::Component(GameObject* parentObject)
 {
-
+    this->parentObject = parentObject;
 }
 
 bool Component::initialize()

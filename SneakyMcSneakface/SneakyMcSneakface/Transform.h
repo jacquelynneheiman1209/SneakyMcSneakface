@@ -1,4 +1,5 @@
 #pragma once
+#include "GameObject.h"
 #include "Component.h"
 
 #ifndef TRANSFORM_H
@@ -7,7 +8,9 @@
 class Transform : public Component
 {
 public:
-	Transform();
+	sf::Vector2f position;
+
+	Transform(GameObject* parentObject);
 
 	bool initialize() override;
 };

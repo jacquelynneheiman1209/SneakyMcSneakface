@@ -1,8 +1,5 @@
 #pragma once
-#include "GameObject.h"
 #include "Component.h"
-#include "IUpdate.h"
-#include "IDraw.h"
 
 #ifndef TEXT_H
 #define TEXT_H
@@ -15,31 +12,34 @@ public:
 	bool initialize() override;
 
 	void setFont(std::string fontPath);
-	void setTextValue(std::string textValue);
-	void setTextSize(int characterSize);
+	void setText(std::string textValue);
+	void setTextSize(int textSize);
 	void setTextColor(sf::Color textColor);
 
 	void IUpdate::update(float deltaTime)
 	{
+		// update the text
 		if (text.getString() != textValue)
 		{
 			text.setString(textValue);
+			setOrigin();
 		}
 
-		if (text.getCharacterSize() != characterSize)
+		// update the text size
+		if (text.getCharacterSize() != textSize)
 		{
-			text.setCharacterSize(characterSize);
+			text.setCharacterSize(textSize);
+			setOrigin();
 		}
 
+		// update the text color
 		if (text.getFillColor() != textColor)
 		{
 			text.setFillColor(textColor);
 		}
 
-		if (text.getPosition() != parentObject->transform->position)
-		{
-			text.setPosition(parentObject->transform->position);
-		}
+		// update the text position
+		text.setPosition(parentObject->transform->position);
 	}
 
 	void IDraw::draw(sf::RenderWindow* window)
@@ -50,16 +50,16 @@ public:
 private:
 	sf::Font font;
 	sf::Text text;
+	
+	std::string textValue;
+	int textSize;
+	sf::Color textColor;
 
 	std::string fontPath;
-	std::string textValue;
-
-	int characterSize;
-
-	sf::Color textColor;
 
 	void setOrigin();
 };
+
 
 #endif // !TEXT_H
 
