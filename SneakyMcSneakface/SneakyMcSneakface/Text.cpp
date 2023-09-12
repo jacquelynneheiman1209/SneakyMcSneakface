@@ -16,7 +16,8 @@ bool Text::initialize()
 
 	if (!font.loadFromFile(fontPath))
 	{
-		std::cout << "Text.cpp :"
+		std::cout << "Text.cpp :  Could not load 'font' from '" << fontPath << "'" << std::endl;
+		return false;
 	}
 
 	return true;
