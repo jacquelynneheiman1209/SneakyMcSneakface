@@ -12,6 +12,8 @@ class GameEngine : IInitialize, IInput, IUpdate, IDraw
 public:
 	GameEngine();
 
+	void run();
+
 	bool IInitialize::initialize()
 	{
 		return true;
@@ -19,7 +21,7 @@ public:
 
 	void IInput::handleInput(sf::RenderWindow* window, sf::Event* event)
 	{
-
+		
 	}
 
 	void IUpdate::update(float deltaTime)
@@ -31,6 +33,12 @@ public:
 	{
 
 	}
+
+private:
+	float windowWidth = 0;
+	float windowHeight = 0;
+
+	sf::Clock gameClock;
 };
 
 #endif // !GAME_ENGINE_H
