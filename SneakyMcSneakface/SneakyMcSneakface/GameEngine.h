@@ -31,7 +31,11 @@ public:
 
 	void IDraw::draw(sf::RenderWindow* window)
 	{
+		window->clear();
 
+		//draw things here
+
+		window->display();
 	}
 
 private:
