@@ -22,6 +22,12 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{077b1570-6bcc-4b3b-aeec-dcc409f6958b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\TextComponent">
+      <UniqueIdentifier>{d9e4fb50-a720-4bd3-97e7-d33d04e12a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\TransformComponent">
+      <UniqueIdentifier>{0973ceee-327b-4ee2-acd1-feec246cdd81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -35,6 +41,12 @@
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="TextComponent.cpp">
+      <Filter>Source Files\Components\TextComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="GameEngine.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextComponent.h">
+      <Filter>Source Files\Components\TextComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

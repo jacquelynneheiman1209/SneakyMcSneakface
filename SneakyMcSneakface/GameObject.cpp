@@ -3,7 +3,8 @@
 
 GameObject::GameObject()
 {
-
+	transform = TransformComponent();
+	transform.position = sf::Vector2f(960, 540);
 }
 
 void GameObject::addComponent(std::unique_ptr<Component> component)

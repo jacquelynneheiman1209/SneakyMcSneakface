@@ -1,5 +1,6 @@
 #include "GameEngine.h"
 #include "GameObject.h"
+#include "TextComponent.h"
 
 GameEngine::GameEngine()
 {
@@ -14,7 +15,7 @@ void GameEngine::run()
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SneakyMcSneakface", sf::Style::Fullscreen);
 
 	GameObject gameObject;
-	gameObject.addComponent(std::unique_ptr<Component>(new Component()));
+	gameObject.addComponent(std::unique_ptr<Component>(new TextComponent("Hello World", sf::Color::Blue, 50)));
 
 	while (window.isOpen())
 	{

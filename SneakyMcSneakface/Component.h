@@ -11,7 +11,7 @@ public:
 
 	Component();
 
-	bool IInitialize::initialize()
+	virtual bool IInitialize::initialize()
 	{
 		return true;
 	}

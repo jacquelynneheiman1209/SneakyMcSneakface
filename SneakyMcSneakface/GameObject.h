@@ -3,7 +3,7 @@
 #include "IInput.h"
 #include "IUpdate.h"
 #include "IDraw.h"
-#include "Component.h"
+#include "TransformComponent.h"
 #include <iostream>
 
 #ifndef GAME_OBJECT_H
@@ -14,6 +14,8 @@ class Component;
 class GameObject : public IInitialize, IInput, IUpdate, IDraw
 {
 public:
+	TransformComponent transform;
+
 	GameObject();
 
 	void addComponent(std::unique_ptr<Component> component);
@@ -25,17 +27,41 @@ public:
 
 	void IInput::handleInput(sf::RenderWindow* window, sf::Event* event)
 	{
-		std::cout << "GameObject.h : handleInput();" << std::endl;
+		for (auto it = components.begin(); it != components.end(); it++)
+		{
+			IInput* component = dynamic_cast<IInput*>(it->get());
+
+			if (component != nullptr)
+			{
+				component->handleInput(window, event);
+			}
+		}
 	}
 
 	void IUpdate::update(float deltaTime)
 	{
-		std::cout << "GameObject.h : update();" << std::endl;
+		for (auto it = components.begin(); it != components.end(); it++)
+		{
+			IUpdate* component = dynamic_cast<IUpdate*>(it->get());
+
+			if (component != nullptr)
+			{
+				component->update(deltaTime);
+			}
+		}
 	}
 
 	void IDraw::draw(sf::RenderWindow* window)
 	{
-		std::cout << "GameObject.h : draw();" << std::endl;
+		for (auto it = components.begin(); it != components.end(); it++)
+		{
+			IDraw* component = dynamic_cast<IDraw*>(it->get());
+
+			if (component != nullptr)
+			{
+				component->draw(window);
+			}
+		}
 	}
 
 private:
